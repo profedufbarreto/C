@@ -1,22 +1,21 @@
 #include<stdio.h>
-#include<windows.h>
-#include<string.h>
+#include<stdbool.h>
 
-int somar(int a, int b){
-    return a + b;
-}
 
 int main(){
 
-    SetConsoleOutputCP(65001);
-    SetConsoleCP(65001);
+    // SetConsoleOutputCP(65001);
+    // SetConsoleCP(65001);
 
-    int num1 = 4;
-    int num2 = 2;
+    bool estaLogado = true;
+    bool temPermissao = false;
 
-    int resultado = somar(num1, num2);
+    if(estaLogado && !temPermissao){
+        printf("Usuário logado, mas sem permissão.\n");
+    }
 
-    printf("O resultado é %d\n", resultado);
+    printf("Valor de estaLodgado: %d\n", estaLogado);
+    printf("Tamanho na memória: %zu byte\n", sizeof(bool));
 
     return 0;
 }
