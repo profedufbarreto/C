@@ -1,22 +1,24 @@
 #include<stdio.h>
 #include<windows.h>
+#include<string.h>
+
+void saudarPessoa(char nome[]){
+    printf("Olá, %s! Seja bem-vindo(a).\n", nome);
+}
 
 int main(){
 
     SetConsoleOutputCP(65001);
     SetConsoleCP(65001);
 
-    int num1, num2, soma;
+    char nomeDigitado[50];
 
-    printf("Digite um valor para num1: ");
-    scanf("%d", &num1);
+    printf("Digite o seu nome: ");
+    fgets(nomeDigitado, sizeof(nomeDigitado), stdin);
 
-    printf("Digite um valor para num2: ");
-    scanf("%d", &num2);
+    nomeDigitado[strcspn(nomeDigitado, "\n")] = '\0';
 
-    soma = num1 + num2;
-
-    printf("O resultado da soma é: %d\n", soma);
+    saudarPessoa(nomeDigitado);
 
     return 0;
 }
