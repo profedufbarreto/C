@@ -1,5 +1,4 @@
 #include<stdio.h>
-#include<stdbool.h>
 
 
 int main(){
@@ -7,15 +6,11 @@ int main(){
     // SetConsoleOutputCP(65001);
     // SetConsoleCP(65001);
 
-    bool estaLogado = true;
-    bool temPermissao = false;
+    int numeros[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 
-    if(estaLogado && !temPermissao){
-        printf("Usuário logado, mas sem permissão.\n");
+    for(int i = 0; i <= 9; i++){
+        printf("%d\n", numeros[i]);
     }
-
-    printf("Valor de estaLodgado: %d\n", estaLogado);
-    printf("Tamanho na memória: %zu byte\n", sizeof(bool));
 
     return 0;
 }
