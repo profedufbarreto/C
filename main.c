@@ -2,8 +2,8 @@
 #include<windows.h>
 #include<string.h>
 
-void saudarPessoa(char nome[]){
-    printf("Olá, %s! Seja bem-vindo(a).\n", nome);
+int somar(int a, int b){
+    return a + b;
 }
 
 int main(){
@@ -11,14 +11,12 @@ int main(){
     SetConsoleOutputCP(65001);
     SetConsoleCP(65001);
 
-    char nomeDigitado[50];
+    int num1 = 4;
+    int num2 = 2;
 
-    printf("Digite o seu nome: ");
-    fgets(nomeDigitado, sizeof(nomeDigitado), stdin);
+    int resultado = somar(num1, num2);
 
-    nomeDigitado[strcspn(nomeDigitado, "\n")] = '\0';
-
-    saudarPessoa(nomeDigitado);
+    printf("O resultado é %d\n", resultado);
 
     return 0;
 }
