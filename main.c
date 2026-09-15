@@ -1,5 +1,5 @@
 #include<stdio.h>
-#include<windows.h>
+#include<locale.h>
 #include<string.h>
 
 int somar(int a, int b){
@@ -8,15 +8,13 @@ int somar(int a, int b){
 
 int main(){
 
-    // SetConsoleOutputCP(65001);
-    // SetConsoleCP(65001);
+    setlocale(LC_ALL, "");
 
-    int num1 = 4;
-    int num2 = 2;
+    int a, b, resultado;
 
-    int resultado = somar(num1, num2);
+    resultado = somar(5, 2);
 
-    printf("O resultado é %d\n", resultado);
+    printf("\nO resultado da soma é: %d\n", resultado);
 
     return 0;
 }
