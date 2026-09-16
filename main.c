@@ -2,20 +2,13 @@
 #include<locale.h>
 #include<string.h>
 
-void saudar(char nome[]){
-    printf("Olá %s\n", nome);
-}
-
 int main(){
 
     setlocale(LC_ALL, "");
 
-    char n[50];
+    int numeros[5] = {1,2,3,4,5};
 
-    printf("Digite seu nome: ");
-    fgets(n, sizeof(n), stdin);
-
-    saudar(n);
+    printf("%d\n", numeros[3]);
     
     return 0;
 }
