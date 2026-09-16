@@ -2,19 +2,20 @@
 #include<locale.h>
 #include<string.h>
 
-int somar(int a, int b){
-    return a + b;
+void saudar(char nome[]){
+    printf("Olá %s\n", nome);
 }
 
 int main(){
 
     setlocale(LC_ALL, "");
 
-    int a, b, resultado;
+    char n[50];
 
-    resultado = somar(5, 2);
+    printf("Digite seu nome: ");
+    fgets(n, sizeof(n), stdin);
 
-    printf("\nO resultado da soma é: %d\n", resultado);
-
+    saudar(n);
+    
     return 0;
 }
