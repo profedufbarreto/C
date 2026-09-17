@@ -10,17 +10,18 @@ int main(){
     SetConsoleOutputCP(65001);
     SetConsoleCP(65001);
 
-    int tab;
-    int resultado;
-
-    do{
-        printf("Digite um número para a tabuada: ");
-        scanf("%d", &tab);
-    }while(tab > 10 || tab < 0);
-        for(int i = 0; i <= 10; i++){
-            resultado = tab * i;
-            printf("\nO resultado é: %d * %d = %d", tab, i, resultado);
-        }
+    int contador;
     
+
+    printf("Digite um valor para ser o contador: ");
+    scanf("%d", &contador);
+
+    while(contador >= 0){
+        contador--;
+        printf("\n%d", contador);
+    }
+    
+    printf("\nBOoomMmMmMm");
+
     return 0;
 }
