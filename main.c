@@ -2,8 +2,8 @@
 #include<locale.h>
 //#include<windows.h>
 
-void saudar(){
-    printf("Olá mundo!!\n");
+void saudar(char nome[20]){
+    printf("Olá %s\n", nome);
 }
 
 int main(){
@@ -13,7 +13,7 @@ int main(){
     //SetConsoleOutputCP(65001);
     //SetConsoleCP(65001);
 
-    saudar();
+    saudar("Edu");
 
     return 0;
 }
