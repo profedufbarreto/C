@@ -2,11 +2,9 @@
 #include<locale.h>
 //#include<windows.h>
 
-void numeros(){
-    int num[] = {1, 2, 3, 4, 5,};
-    for(int i = 0; i < 5; i++){
-        printf("%d\n", num[i]);
-    }
+int fatorial(int n){
+    if(n == 0) return 1;
+    return n * fatorial(n - 1);
 }
 
 int main(){
@@ -16,7 +14,9 @@ int main(){
     //SetConsoleOutputCP(65001);
     //SetConsoleCP(65001);
 
-   numeros();
+   int numero = 5;
+
+   printf("Fatorial de  %d é %d\n", numero, fatorial(numero));
 
     return 0;
 }
