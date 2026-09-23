@@ -2,9 +2,11 @@
 #include<locale.h>
 //#include<windows.h>
 
-void calculaTabuada(int num){
-    for(int i = 0; i <= 10; i++){
-        printf("O resultado de %d x %d é: %d\n", num, i, num * i);
+void verificarParOuImpar(int num){
+    if(num % 2 == 0){
+        printf("O número %d é par!\n", num);
+    }else{
+        printf("O número %d é ímpar!\n", num);
     }
 }
 
@@ -15,12 +17,12 @@ int main(){
     //SetConsoleOutputCP(65001);
     //SetConsoleCP(65001);
 
-    int numEscolhido;
+    int numero; 
 
-    printf("Digite o número escolhido: ");
-    scanf("%d", &numEscolhido);
+    printf("Digite um número: ");
+    scanf("%d", &numero);
 
-    calculaTabuada(numEscolhido);
+    verificarParOuImpar(numero);
 
     return 0;
 }
