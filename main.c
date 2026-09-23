@@ -2,10 +2,7 @@
 #include<locale.h>
 //#include<windows.h>
 
-int fatorial(int n){
-    if(n == 0) return 1;
-    return n * fatorial(n - 1);
-}
+
 
 int main(){
 
@@ -14,9 +11,15 @@ int main(){
     //SetConsoleOutputCP(65001);
     //SetConsoleCP(65001);
 
-   int numero = 5;
+   int tab;
 
-   printf("Fatorial de  %d é %d\n", numero, fatorial(numero));
+   printf("Digite um valor para a tabuada: ");
+   scanf("%d", &tab);
+
+   for(int i = 0; i < 11; i++){
+        int resultado = i * tab;
+        printf("O resultado de %d x %d é: %d\n", tab, i, resultado);
+   }
 
     return 0;
 }
