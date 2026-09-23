@@ -2,7 +2,14 @@
 #include<locale.h>
 //#include<windows.h>
 
-
+void tabuada(int num){
+    printf("Digite um número: ");
+    scanf("%d", &num);
+    for(int i = 0; i < 11; i++){
+        int resultado = num * i;
+        printf("O resultado de %d x %d é: %d\n", num, i, resultado);
+    }
+}
 
 int main(){
 
@@ -11,15 +18,9 @@ int main(){
     //SetConsoleOutputCP(65001);
     //SetConsoleCP(65001);
 
-   int tab;
+    int num;
 
-   printf("Digite um valor para a tabuada: ");
-   scanf("%d", &tab);
-
-   for(int i = 0; i < 11; i++){
-        int resultado = i * tab;
-        printf("O resultado de %d x %d é: %d\n", tab, i, resultado);
-   }
+    tabuada(num);
 
     return 0;
 }
