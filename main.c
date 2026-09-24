@@ -10,17 +10,34 @@ int main(){
     //SetConsoleOutputCP(65001);
     //SetConsoleCP(65001);
 
-   char senha[20];
+   int opcao;
 
-   printf("Digite a senha: ");
-   scanf("%s", senha);
+   while(opcao != 0){
+    printf("\nMenu: \n");
+    printf("1 - Depositar\n");
+    printf("2 - Sacar\n");
+    printf("3 - Consultar\n");
+    printf("0 - Sair\n");
+    printf("Escolha: ");
+    scanf("%d", &opcao);
 
-   while(strcmp(senha, "1234") != 0){
-    printf("Senha incorreta! Tente novamente!");
-    scanf("%s", senha);
+    switch(opcao){
+        case 1: 
+            printf("Você escolheu Depositar\n");
+            break;
+        case 2: 
+            printf("Você escolheu Sacar\n");
+            break;
+        case 3:
+            printf("Você escolheu Consultar\n");
+            break;
+        case 0:
+            printf("Saindo...\n");
+            break;
+        default:
+            printf("Opção inválida!\n");
+    }
    }
-
-   printf("Acesso liberado!\n");
 
     return 0;
 }
