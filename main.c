@@ -1,13 +1,7 @@
 #include<stdio.h>
 #include<locale.h>
 //#include<windows.h>
-
-void numeros(){
-    int num[] = {1, 2, 3, 4, 5,};
-    for(int i = 0; i < 5; i++){
-        printf("%d\n", num[i]);
-    }
-}
+#include<string.h>
 
 int main(){
 
@@ -16,7 +10,17 @@ int main(){
     //SetConsoleOutputCP(65001);
     //SetConsoleCP(65001);
 
-   numeros();
+   char senha[20];
+
+   printf("Digite a senha: ");
+   scanf("%s", senha);
+
+   while(strcmp(senha, "1234") != 0){
+    printf("Senha incorreta! Tente novamente!");
+    scanf("%s", senha);
+   }
+
+   printf("Acesso liberado!\n");
 
     return 0;
 }
