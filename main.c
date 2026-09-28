@@ -10,14 +10,17 @@ int main(){
     //SetConsoleOutputCP(65001);
     //SetConsoleCP(65001);
 
-   int i = 1;
-   while(i <= 50){
-        if(i % 2 == 0){
-            printf("%d\n", i);
-        }
-        i++;
-   }
+    int n, soma = 0;
 
+    printf("Digite um número: ");
+    scanf("%d", &n);
+
+    while(n > 0){
+        soma = soma + n % 10;
+        n = n / 10;
+    }
+
+    printf("Soma dos dígitos: %d\n", soma);
 
     return 0;
 }
