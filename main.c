@@ -10,16 +10,16 @@ int main(){
     //SetConsoleOutputCP(65001);
     //SetConsoleCP(65001);
 
-    int n, contador = 0;
-    printf("Digite um número: ");
+    int n, a = 0, b = 1, c;
+    printf("Digite quantos termos da Fibonacci: ");
     scanf("%d", &n);
 
-    while(n > 0){
-        contador++;
-        n /= 10;
+    for(int i = 0; i < n; i++){
+        printf("%d", a);
+        c = a + b;
+        a = b;
+        b = c;
     }
-
-    printf("Quantidade de dígitos: %d\n", contador);
 
     return 0;
 }
