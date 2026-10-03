@@ -8,27 +8,30 @@ int main(){
      setlocale(LC_ALL, "Portuguese_Brazil.1252");
     //SetConsoleOutputCP(65001);
     //SetConsoleCP(65001);
+    int n;
+    printf("Digite o tamanho do vetor: ");
+    scanf("%d", &n);
 
-    int alvoI, alvoJ, alvoX, alvoY;
-    int contador = 0;
+    int v[n];
 
-    printf("Digite o valor do código: ");
-    scanf("%d %d %d %d", &alvoI, &alvoJ, &alvoX, &alvoY);
+    for (int i = 0; i < n; i++) {
+        printf("Digite o valor %d: ", i + 1);
+        scanf("%d", &v[i]);
+    }
 
-        for(int i = 0; i <= 9; i++){
-            for(int j = 0; j <= 9; j++){
-                for(int x = 0; x <= 9; x++){
-                    for(int y = 0; y <= 9; y++){
-                        contador++;
-                        printf("Tentativa %d: %d %d %d %d\n", contador, i, j, x, y);
-                        if(i == alvoI && j == alvoJ && x == alvoX && y == alvoY){
-                            printf("\nCódigo encontrado após %d tentativas.", contador);
-                            return 0;
-                        }
-                    }
-                }
-            }
+    int ordenado = 1;
+    for (int i = 0; i < n - 1; i++) {
+        if (v[i] > v[i + 1]) {
+            ordenado = 0;
+            break;
         }
+    }
+
+    if (ordenado) {
+        printf("O vetor esta ordenado de forma crescente\n");
+    } else {
+        printf("O vetor NAO esta ordenado\n");
+    }
 
     return 0;
 }
