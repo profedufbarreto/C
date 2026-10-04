@@ -8,30 +8,19 @@ int main(){
      setlocale(LC_ALL, "Portuguese_Brazil.1252");
     //SetConsoleOutputCP(65001);
     //SetConsoleCP(65001);
-    int n;
-    printf("Digite o tamanho do vetor: ");
-    scanf("%d", &n);
+    int v[5];
 
-    int v[n];
-
-    for (int i = 0; i < n; i++) {
+    for(int i = 0; i < 5; i++){
         printf("Digite o valor %d: ", i + 1);
         scanf("%d", &v[i]);
     }
 
-    int ordenado = 1;
-    for (int i = 0; i < n - 1; i++) {
-        if (v[i] > v[i + 1]) {
-            ordenado = 0;
-            break;
-        }
+    printf("Vetor invertido: \n");
+    for(int i = 4; i >= 0; i--){
+        printf("%d ", v[i]);
     }
 
-    if (ordenado) {
-        printf("O vetor esta ordenado de forma crescente\n");
-    } else {
-        printf("O vetor NAO esta ordenado\n");
-    }
+    printf("\n");
 
     return 0;
 }
