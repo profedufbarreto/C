@@ -9,18 +9,11 @@ int main(){
     //SetConsoleOutputCP(65001);
     //SetConsoleCP(65001);
     
-    int a = 0;
-    int b = 5;
+    int x = 0;
+    int y = 5; //em C, valores diferentes de 0 são considerados verdadeiro(1).
 
-    if(a){
-        printf("A é falso, então !a é verdadeiro\n");
-    }
-
-    if(!b){
-        printf("B é verdadeiro, então !b seria falso\n");
-    }else{
-        printf("Como b é diferente de 0, !b é falso\n");
-    }
+    printf("!x = %d\n", !x);
+    printf("!y = %d\n", !y);
 
     return 0;
 }
