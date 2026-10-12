@@ -20,15 +20,18 @@ int main(){
         scanf("%d", &v[i]);
     }
 
-    int maior = v[0], menor = v[0];
-
-    for(int i = 1; i < n; i++){
-        if(v[i] > maior) maior = v[i];
-        if(v[i] < menor) menor = v[i];
+    int ordenado = 1;
+    for(int i = 0; i < n - 1; i++){
+        if(v[i] > v[i + 1]){
+            ordenado = 0;
+            break;
+        }
     }
-
-    printf("Maior: %d\n", maior);
-    printf("Menor: %d\n", menor);
+    if(ordenado){
+        printf("O vetor está ordenado de forma crescente\n");
+    }else{
+        printf("O vetor Não está ordenado\n");
+    }
 
     return 0;
 }
