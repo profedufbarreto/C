@@ -9,36 +9,32 @@ int main(){
     //SetConsoleOutputCP(65001);
     //SetConsoleCP(65001);
     
-    int n, pos, valor;
+    int n, valor, encontrado = 0;
 
     printf("Digite o tamanho do vetor: ");
     scanf("%d", &n);
 
-    int v[n + 1];
+    int v[n];
 
     for(int i = 0; i < n; i++){
         printf("Digite o valor %d: ", i + 1);
         scanf("%d", &v[i]);
     }
 
-    printf("Digite a posição de inserção (0 a %d): ", n);
-    scanf("%d", &pos);
-    printf("Digite o valor a inserir: ");
+    printf("Digite o valor a buscar: ");
     scanf("%d", &valor);
 
-    for(int i = n; i > pos; i--){
-        v[i] = v[i - 1];
-    }
-    
-    v[pos] = valor;
-    n++;
-
-    printf("Vetor após inserção:\n");
     for(int i = 0; i < n; i++){
-        printf("%d", v[i]);
+        if(v[i] == valor){
+            encontrado = 1;
+            printf("Valor encontrado na posição %d\n", i);
+            break;
+        }
     }
 
-    printf("\n");
+    if(!encontrado){
+        printf("Valor NÃO encontrado\n");
+    }
 
     return 0;
 }
