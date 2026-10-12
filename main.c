@@ -9,31 +9,17 @@ int main(){
     //SetConsoleOutputCP(65001);
     //SetConsoleCP(65001);
     
-    int n, valor, encontrado = 0;
+    int a = 0;
+    int b = 5;
 
-    printf("Digite o tamanho do vetor: ");
-    scanf("%d", &n);
-
-    int v[n];
-
-    for(int i = 0; i < n; i++){
-        printf("Digite o valor %d: ", i + 1);
-        scanf("%d", &v[i]);
+    if(a){
+        printf("A é falso, então !a é verdadeiro\n");
     }
 
-    printf("Digite o valor a buscar: ");
-    scanf("%d", &valor);
-
-    for(int i = 0; i < n; i++){
-        if(v[i] == valor){
-            encontrado = 1;
-            printf("Valor encontrado na posição %d\n", i);
-            break;
-        }
-    }
-
-    if(!encontrado){
-        printf("Valor NÃO encontrado\n");
+    if(!b){
+        printf("B é verdadeiro, então !b seria falso\n");
+    }else{
+        printf("Como b é diferente de 0, !b é falso\n");
     }
 
     return 0;
