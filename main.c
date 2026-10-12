@@ -9,28 +9,33 @@ int main(){
     //SetConsoleOutputCP(65001);
     //SetConsoleCP(65001);
     
-    int n, pos;
+    int n, pos, valor;
+
     printf("Digite o tamanho do vetor: ");
     scanf("%d", &n);
 
-    int v[n];
+    int v[n + 1];
 
     for(int i = 0; i < n; i++){
         printf("Digite o valor %d: ", i + 1);
         scanf("%d", &v[i]);
     }
 
-    printf("Digite a posição a remover (0 a %d): ", n - 1);
+    printf("Digite a posição de inserção (0 a %d): ", n);
     scanf("%d", &pos);
+    printf("Digite o valor a inserir: ");
+    scanf("%d", &valor);
 
-    for(int i = pos; i < n - 1; i++){
-        v[i] = v[i + 1];
+    for(int i = n; i > pos; i--){
+        v[i] = v[i - 1];
     }
-    n--;
+    
+    v[pos] = valor;
+    n++;
 
-    printf("Vetor após remoção: \n");
+    printf("Vetor após inserção:\n");
     for(int i = 0; i < n; i++){
-        printf("%d\n", v[i]);
+        printf("%d", v[i]);
     }
 
     printf("\n");
