@@ -1,6 +1,11 @@
 #include<stdio.h>
 #include<locale.h>
+#include<string.h>
+#include<stdlib.h>
+#include<time.h>
 //#include<windows.h>
+
+
 
 int main(){
 
@@ -8,30 +13,53 @@ int main(){
      setlocale(LC_ALL, "Portuguese_Brazil.1252");
     //SetConsoleOutputCP(65001);
     //SetConsoleCP(65001);
-    int n;
-    printf("Digite o tamanho do vetor: ");
-    scanf("%d", &n);
+    
+    const int MAX_TENTATIVAS = 7;
 
-    int v[n];
+    int tentativas[MAX_TENTATIVAS];
+    int secreto, palpite;
+    int usadas = 0, acertou = 0;
 
-    for (int i = 0; i < n; i++) {
-        printf("Digite o valor %d: ", i + 1);
-        scanf("%d", &v[i]);
-    }
+    srand(time(NULL));
+    secreto = rand() % 100 + 1;
 
-    int ordenado = 1;
-    for (int i = 0; i < n - 1; i++) {
-        if (v[i] > v[i + 1]) {
-            ordenado = 0;
-            break;
+    printf("Adivinhe o numero entre 1 e 100.\n");
+    printf("Voce tem %d tentativas.\n", MAX_TENTATIVAS);
+
+    do {
+        printf("\nTentativa %d: ", usadas + 1);
+        scanf("%d", &palpite);
+
+        if (palpite < 1 || palpite > 100) {
+            printf("Digite um numero entre 1 e 100!\n");
+        } else {
+            tentativas[usadas] = palpite;
+            usadas++;
+
+            if (palpite == secreto) {
+                acertou = 1;
+            } else if (palpite < secreto) {
+                printf("O numero secreto e MAIOR.\n");
+            } else {
+                printf("O numero secreto e MENOR.\n");
+            }
         }
+
+    } while (!acertou && usadas < MAX_TENTATIVAS);
+
+    printf("\n--- FIM DE JOGO ---\n");
+
+    if (acertou) {
+        printf("Parabens! Voce acertou em %d tentativa(s).\n", usadas);
+    } else {
+        printf("Suas tentativas acabaram. O numero era %d.\n", secreto);
     }
 
-    if (ordenado) {
-        printf("O vetor esta ordenado de forma crescente\n");
-    } else {
-        printf("O vetor NAO esta ordenado\n");
+    printf("\nHistorico de palpites:\n");
+    for (int i = 0; i < usadas; i++) {
+        printf("%d) %d\n", i + 1, tentativas[i]);
     }
+
 
     return 0;
 }
