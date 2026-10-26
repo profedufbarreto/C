@@ -11,32 +11,75 @@ int main(){
      setlocale(LC_ALL, "Portuguese_Brazil.1252");
     //SetConsoleOutputCP(65001);
     //SetConsoleCP(65001);
-    const int LANCAMENTOS = 10;
+    const int TAM_CARTELA = 5;
+    const int MAX_NUMERO = 20;
 
-    int dados[LANCAMENTOS];
-    int soma = 0;
-    int seis = 0;
+    int cartela[TAM_CARTELA];
+    int marcado[TAM_CARTELA];
+    int sorteado[MAX_NUMERO + 1];
+
+    int numero;
+    int rodadas = 0;
+    int acertos = 0;
 
     srand(time(NULL));
 
-    // Sorteio
-    for (int i = 0; i < LANCAMENTOS; i++) {
-        dados[i] = rand() % 6 + 1;
-        soma += dados[i];
+    // Leitura da cartela
+    printf("Monte sua cartela com %d numeros (1 a %d):\n", TAM_CARTELA, MAX_NUMERO);
+    for (int i = 0; i < TAM_CARTELA; i++) {
+        do {
+            printf("Numero %d: ", i + 1);
+            scanf("%d", &cartela[i]);
+        } while (cartela[i] < 1 || cartela[i] > MAX_NUMERO);
 
-        if (dados[i] == 6) {
-            seis++;
+        marcado[i] = 0;
+    }
+
+    // Nenhuma bola saiu ainda
+    for (int i = 0; i <= MAX_NUMERO; i++) {
+        sorteado[i] = 0;
+    }
+
+    getchar(); // consome o ENTER que sobrou do ultimo scanf
+
+    // Sorteio das bolas
+    do {
+        printf("\nPressione ENTER para sortear a proxima bola...");
+        getchar();
+
+        // Sorteia uma bola que ainda nao saiu
+        do {
+            numero = rand() % MAX_NUMERO + 1;
+        } while (sorteado[numero] == 1);
+
+        sorteado[numero] = 1;
+        rodadas++;
+
+        printf("Bola %d: %d\n", rodadas, numero);
+
+        // Confere a cartela
+        for (int i = 0; i < TAM_CARTELA; i++) {
+            if (cartela[i] == numero) {
+                marcado[i] = 1;
+                acertos++;
+                printf("Voce tem esse numero!\n");
+            }
         }
-    }
 
-    // Resultados
-    printf("Resultados dos lancamentos:\n");
-    for (int i = 0; i < LANCAMENTOS; i++) {
-        printf("Lancamento %d: %d\n", i + 1, dados[i]);
-    }
+        // Mostra a cartela
+        printf("Cartela: ");
+        for (int i = 0; i < TAM_CARTELA; i++) {
+            if (marcado[i]) {
+                printf("[%d] ", cartela[i]);
+            } else {
+                printf(" %d  ", cartela[i]);
+            }
+        }
+        printf("\n");
 
-    printf("\nSoma: %d\n", soma);
-    printf("Quantidade de vezes que saiu 6: %d\n", seis);
+    } while (acertos < TAM_CARTELA);
+
+    printf("\nBINGO! Voce completou a cartela com %d bolas sorteadas.\n", rodadas);
 
     return 0;
 }
