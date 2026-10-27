@@ -5,21 +5,24 @@
 #include<time.h>
 //#include<windows.h>
 
+void soma(){
+    int a, b, resultado;
+    printf("Digite um valor para a: ");
+    scanf("%d", &a);
+    printf("Digite um valor para b: ");
+    scanf("%d", &b);
+    resultado = a + b;
+    printf("A soma de %d + %d é: %d\n", a, b, resultado);
+}
+
 int main(){
 
     // setlocale(LC_ALL, "pt_BR.UTF8");
      setlocale(LC_ALL, "Portuguese_Brazil.1252");
     //SetConsoleOutputCP(65001);
     //SetConsoleCP(65001);
-    int m[2][2] = {{1, 2},
-                   {3, 4}};
-
-    for (int i = 0; i < 2; i++) {
-        for (int j = 0; j < 2; j++) {
-            printf("%d ", m[i][j]);
-        }
-        printf("\n");
-    }
+    
+    soma();
 
     return 0;
 }
