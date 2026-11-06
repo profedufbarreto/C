@@ -5,14 +5,13 @@
 #include<time.h>
 //#include<windows.h>
 
-void soma(){
-    int a, b, resultado;
-    printf("Digite um valor para a: ");
-    scanf("%d", &a);
-    printf("Digite um valor para b: ");
-    scanf("%d", &b);
-    resultado = a + b;
-    printf("A soma de %d + %d é: %d\n", a, b, resultado);
+int somar(int n) {
+
+    if (n == 0) {
+        return 0;
+    }
+
+    return n + somar(n - 1);
 }
 
 int main(){
@@ -21,8 +20,10 @@ int main(){
      setlocale(LC_ALL, "Portuguese_Brazil.1252");
     //SetConsoleOutputCP(65001);
     //SetConsoleCP(65001);
-    
-    soma();
+    int resultado = somar(5);
+
+    printf("Resultado: %d\n", resultado);
 
     return 0;
 }
+
