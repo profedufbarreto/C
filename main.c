@@ -5,17 +5,16 @@
 #include<time.h>
 //#include<windows.h>
 
-void tabuada(int numero, int contador) {
+int soma(int n) {
+    int total = 0;
 
-    if (contador > 10) {
-        return;
+    for (int i = 1; i <= n; i++) {
+        total += i;
     }
 
-    printf("%d x %d = %d\n",
-           numero, contador, numero * contador);
-
-    tabuada(numero, contador + 1);
+    return total;
 }
+
 
 int main(){
 
@@ -23,7 +22,8 @@ int main(){
      setlocale(LC_ALL, "Portuguese_Brazil.1252");
     //SetConsoleOutputCP(65001);
     //SetConsoleCP(65001);
-    tabuada(7, 1);
+   printf("Soma de 1 a 5: %d\n", soma(5));
+    return 0;
 
     return 0;
 }
